@@ -17,7 +17,7 @@ export class SqliteClient {
       title VARCHAR(200)
       )`);
 
-    const data = this.readAll();
+    const data = this.getList();
     if (data.length > 0) this.deleteAll();
 
     const stmt = this.db.prepare(
@@ -38,7 +38,7 @@ export class SqliteClient {
         title: 'ea molestias quasi exercitationem repellat qui ipsa sit aut',
       },
     ].forEach(({ name, age, title }, id) => {
-      stmt.run({ id, name, age, title });
+      stmt.run({ id: id + 1, name, age, title });
     });
 
     console.log(`dummy data inserted`);
@@ -48,16 +48,12 @@ export class SqliteClient {
     // this.db.prepare(``)
   }
 
-  read() {
-    //
+  getById(id: string) {
+    return this.db.prepare(`SELECT * FROM ${this.table} WHERE id=?`).get(id);
   }
 
-  readAll() {
-    console.time(`readAll`);
-    const data = this.db.prepare(`SELECT * FROM ${this.table}`).all();
-
-    console.timeEnd(`readAll`);
-    return data;
+  getList() {
+    return this.db.prepare(`SELECT * FROM ${this.table}`).all();
   }
 
   update() {
