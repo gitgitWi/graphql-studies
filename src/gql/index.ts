@@ -1,1 +1,2 @@
-export * from './hello';
+export * from './resolvers';
+export * from './queries';

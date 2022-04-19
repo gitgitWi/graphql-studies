@@ -1,13 +1,13 @@
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 
-import { HelloType, HelloResolvers } from './gql';
+import { typeDefs, resolvers } from './gql';
 
 const app = express();
 
 const apolloServer = new ApolloServer({
-  typeDefs: HelloType,
-  resolvers: HelloResolvers,
+  typeDefs,
+  resolvers,
 });
 
 const apolloPath = `/api`;
