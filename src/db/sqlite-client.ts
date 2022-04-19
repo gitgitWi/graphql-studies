@@ -1,5 +1,7 @@
 import DB from 'better-sqlite3';
 
+import { type Note } from '../gql';
+
 export class SqliteClient {
   constructor(
     private readonly db = new DB('test.db'),
@@ -44,8 +46,21 @@ export class SqliteClient {
     console.log(`dummy data inserted`);
   }
 
-  create() {
-    // this.db.prepare(``)
+  create({ id, name, age, title }: Note) {
+    try {
+      this.db
+        .prepare(`INSERT INTO ${this.table} VALUES (@id, @name, @age, @title)`)
+        .run({
+          id,
+          name,
+          age,
+          title,
+        });
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
 
   getById(id: string) {
@@ -54,6 +69,12 @@ export class SqliteClient {
 
   getList() {
     return this.db.prepare(`SELECT * FROM ${this.table}`).all();
+  }
+
+  getDataLength() {
+    return this.db.prepare(`SELECT COUNT(id) FROM ${this.table}`).get()[
+      'COUNT(id)'
+    ];
   }
 
   update() {
