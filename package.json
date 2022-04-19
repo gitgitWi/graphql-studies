@@ -1,5 +1,6 @@
 {
-  "name": "js-everywhere",
+  "name": "graphql-studies",
+  "description": "GraphQL 스터디 (with book 'JavaScript EveryWhere')",
   "version": "1.0.0",
   "main": "src/index.ts",
   "license": "MIT",
