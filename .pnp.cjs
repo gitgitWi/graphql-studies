@@ -35,11 +35,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/better-sqlite3", "npm:7.5.0"],\
             ["@types/express", "npm:4.17.13"],\
+            ["@types/graphql-iso-date", "npm:3.4.0"],\
             ["@types/node", "npm:17.0.25"],\
             ["apollo-server-express", "virtual:94e304e6d56895c5becb457cf087ca8b9ff8e9b658c00f4cd4e2571f3f8fb838a56527f6881526fd2c99c809c8826cb1b0e9fc84188c0560ead1f27979385503#npm:3.6.7"],\
             ["better-sqlite3", "npm:7.5.1"],\
             ["express", "npm:4.17.3"],\
             ["graphql", "npm:16.3.0"],\
+            ["graphql-iso-date", "virtual:94e304e6d56895c5becb457cf087ca8b9ff8e9b658c00f4cd4e2571f3f8fb838a56527f6881526fd2c99c809c8826cb1b0e9fc84188c0560ead1f27979385503#npm:3.6.1"],\
             ["nodemon", "npm:2.0.15"],\
             ["ts-node", "virtual:94e304e6d56895c5becb457cf087ca8b9ff8e9b658c00f4cd4e2571f3f8fb838a56527f6881526fd2c99c809c8826cb1b0e9fc84188c0560ead1f27979385503#npm:10.7.0"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
@@ -486,6 +488,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:17.0.25"],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/range-parser", "npm:1.2.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/graphql-iso-date", [\
+        ["npm:3.4.0", {\
+          "packageLocation": "./.yarn/cache/@types-graphql-iso-date-npm-3.4.0-b0a2a7f4fd-97ec12d499.zip/node_modules/@types/graphql-iso-date/",\
+          "packageDependencies": [\
+            ["@types/graphql-iso-date", "npm:3.4.0"],\
+            ["graphql", "npm:15.8.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1974,10 +1986,39 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["graphql", [\
+        ["npm:15.8.0", {\
+          "packageLocation": "./.yarn/cache/graphql-npm-15.8.0-0156c66b65-423325271d.zip/node_modules/graphql/",\
+          "packageDependencies": [\
+            ["graphql", "npm:15.8.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:16.3.0", {\
           "packageLocation": "./.yarn/cache/graphql-npm-16.3.0-299402ace8-ba540641e9.zip/node_modules/graphql/",\
           "packageDependencies": [\
             ["graphql", "npm:16.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["graphql-iso-date", [\
+        ["npm:3.6.1", {\
+          "packageLocation": "./.yarn/cache/graphql-iso-date-npm-3.6.1-bbab129ea7-829d1a2697.zip/node_modules/graphql-iso-date/",\
+          "packageDependencies": [\
+            ["graphql-iso-date", "npm:3.6.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:94e304e6d56895c5becb457cf087ca8b9ff8e9b658c00f4cd4e2571f3f8fb838a56527f6881526fd2c99c809c8826cb1b0e9fc84188c0560ead1f27979385503#npm:3.6.1", {\
+          "packageLocation": "./.yarn/__virtual__/graphql-iso-date-virtual-df71f6c861/0/cache/graphql-iso-date-npm-3.6.1-bbab129ea7-829d1a2697.zip/node_modules/graphql-iso-date/",\
+          "packageDependencies": [\
+            ["graphql-iso-date", "virtual:94e304e6d56895c5becb457cf087ca8b9ff8e9b658c00f4cd4e2571f3f8fb838a56527f6881526fd2c99c809c8826cb1b0e9fc84188c0560ead1f27979385503#npm:3.6.1"],\
+            ["@types/graphql", null],\
+            ["graphql", "npm:16.3.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/graphql",\
+            "graphql"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1989,11 +2030,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql-studies", "workspace:."],\
             ["@types/better-sqlite3", "npm:7.5.0"],\
             ["@types/express", "npm:4.17.13"],\
+            ["@types/graphql-iso-date", "npm:3.4.0"],\
             ["@types/node", "npm:17.0.25"],\
             ["apollo-server-express", "virtual:94e304e6d56895c5becb457cf087ca8b9ff8e9b658c00f4cd4e2571f3f8fb838a56527f6881526fd2c99c809c8826cb1b0e9fc84188c0560ead1f27979385503#npm:3.6.7"],\
             ["better-sqlite3", "npm:7.5.1"],\
             ["express", "npm:4.17.3"],\
             ["graphql", "npm:16.3.0"],\
+            ["graphql-iso-date", "virtual:94e304e6d56895c5becb457cf087ca8b9ff8e9b658c00f4cd4e2571f3f8fb838a56527f6881526fd2c99c809c8826cb1b0e9fc84188c0560ead1f27979385503#npm:3.6.1"],\
             ["nodemon", "npm:2.0.15"],\
             ["ts-node", "virtual:94e304e6d56895c5becb457cf087ca8b9ff8e9b658c00f4cd4e2571f3f8fb838a56527f6881526fd2c99c809c8826cb1b0e9fc84188c0560ead1f27979385503#npm:10.7.0"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
