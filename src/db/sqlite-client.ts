@@ -46,7 +46,7 @@ export class SqliteClient {
     console.log(`dummy data inserted`);
   }
 
-  create({ id, name, age, title }: Note) {
+  create({ id, name, age, title }: Note): boolean {
     try {
       this.db
         .prepare(`INSERT INTO ${this.table} VALUES (@id, @name, @age, @title)`)
@@ -63,30 +63,70 @@ export class SqliteClient {
     }
   }
 
-  getById(id: string) {
-    return this.db.prepare(`SELECT * FROM ${this.table} WHERE id=?`).get(id);
+  getById(id: string): Note | boolean {
+    try {
+      return this.db.prepare(`SELECT * FROM ${this.table} WHERE id=?`).get(id);
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
 
-  getList() {
-    return this.db.prepare(`SELECT * FROM ${this.table}`).all();
+  getList(): Note[] {
+    try {
+      return this.db.prepare(`SELECT * FROM ${this.table}`).all();
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
   }
 
-  getDataLength() {
-    return this.db.prepare(`SELECT COUNT(id) FROM ${this.table}`).get()[
-      'COUNT(id)'
-    ];
+  getDataLength(): number {
+    try {
+      return this.db.prepare(`SELECT COUNT(id) FROM ${this.table}`).get()[
+        'COUNT(id)'
+      ];
+    } catch (error) {
+      console.error(error);
+      return 0;
+    }
   }
 
-  update() {
-    //
+  update(id: string, title: string): boolean {
+    if (!id) return false;
+    try {
+      return (
+        this.db
+          .prepare(`UPDATE ${this.table} SET title=@title WHERE id=@id`)
+          .run({
+            id,
+            title,
+          }).changes > 0
+      );
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
 
-  delete() {
-    //
+  delete(id: string): boolean {
+    try {
+      return (
+        this.db.prepare(`DELETE FROM ${this.table} WHERE id=@id`).run({ id })
+          .changes > 0
+      );
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
 
-  private deleteAll() {
-    this.db.exec(`DELETE FROM ${this.table}`);
+  private deleteAll(): void {
+    try {
+      this.db.exec(`DELETE FROM ${this.table}`);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
