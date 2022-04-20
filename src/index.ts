@@ -2,16 +2,13 @@ import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 
 import { sqlite } from './db';
-import { typeDefs, Mutation, Query } from './gql';
+import { typeDefs, resolvers } from './gql';
 
 const app = express();
 
 const apolloServer = new ApolloServer({
   typeDefs,
-  resolvers: {
-    Query,
-    Mutation,
-  },
+  resolvers,
   context() {
     return {
       model: sqlite,

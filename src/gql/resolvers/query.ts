@@ -1,4 +1,4 @@
-import { ContextProps, Note } from './interfaces';
+import { ContextProps, Note } from '../interfaces';
 
 export const Query = {
   hello: () => `Hello World`,

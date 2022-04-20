@@ -8,6 +8,8 @@ export const typeDefs = gql`
     name: String!
     age: Int!
     title: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
   }
 
   type Query {
