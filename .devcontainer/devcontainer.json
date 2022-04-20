@@ -20,6 +20,8 @@
 		"mrmlnc.vscode-scss",
 		"alexcvzz.vscode-sqlite",
 		"VisualStudioExptTeam.intellicode-api-usage-examples",
-		"WakaTime.vscode-wakatime"
+		"WakaTime.vscode-wakatime",
+		"stpn.vscode-graphql",
+		"arcanis.vscode-zipfs"
 	]
 }

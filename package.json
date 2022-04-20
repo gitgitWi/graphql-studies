@@ -7,6 +7,7 @@
   "scripts": {
     "serve": "nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/index.ts"
   },
+  "packageManager": "yarn@3.2.0",
   "dependencies": {
     "apollo-server-express": "^3.6.7",
     "better-sqlite3": "^7.5.1",
