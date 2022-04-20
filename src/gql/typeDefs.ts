@@ -16,5 +16,7 @@ export const typeDefs = gql`
 
   type Mutation {
     addNote(title: String!, name: String!, age: Int!): Boolean!
+    updateNote(id: ID!, title: String!): Boolean!
+    deleteNote(id: ID!): Boolean!
   }
 `;
