@@ -1,13 +1,22 @@
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 
-import { typeDefs, resolvers } from './gql';
+import { sqlite } from './db';
+import { typeDefs, Mutation, Query } from './gql';
 
 const app = express();
 
 const apolloServer = new ApolloServer({
   typeDefs,
-  resolvers,
+  resolvers: {
+    Query,
+    Mutation,
+  },
+  context() {
+    return {
+      model: sqlite,
+    };
+  },
 });
 
 const apolloPath = `/api`;
