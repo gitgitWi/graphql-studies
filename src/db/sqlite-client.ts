@@ -13,17 +13,19 @@ export class SqliteClient {
   private initialData() {
     // this.db.exec(`DROP TABLE IF EXISTS ${this.table}`);
     this.db.exec(`CREATE TABLE IF NOT EXISTS ${this.table} (
-      id    INT PRIMARY KEY,
+      id    INTEGER PRIMARY KEY,
       name  VARCHAR(30) NOT NULL,
-      age   INT,
-      title VARCHAR(200)
+      age   INTEGER,
+      title VARCHAR(200),
+      createdAt INTEGER NOT NULL DEFAULT (datetime('now', 'localtime')),
+      updatedAt INTEGER NOT NULL DEFAULT (datetime('now', 'localtime'))
       )`);
 
     const data = this.getList();
     if (data.length > 0) this.deleteAll();
 
     const stmt = this.db.prepare(
-      `INSERT INTO ${this.table} VALUES (@id, @name, @age, @title)`
+      `INSERT INTO ${this.table} (id, name, age, title) VALUES (@id, @name, @age, @title)`
     );
 
     [
@@ -49,7 +51,9 @@ export class SqliteClient {
   create({ id, name, age, title }: Note): boolean {
     try {
       this.db
-        .prepare(`INSERT INTO ${this.table} VALUES (@id, @name, @age, @title)`)
+        .prepare(
+          `INSERT INTO ${this.table} (id, name, age, title) VALUES (@id, @name, @age, @title)`
+        )
         .run({
           id,
           name,
@@ -65,7 +69,13 @@ export class SqliteClient {
 
   getById(id: string): Note | boolean {
     try {
-      return this.db.prepare(`SELECT * FROM ${this.table} WHERE id=?`).get(id);
+      const data = this.db
+        .prepare(`SELECT * FROM ${this.table} WHERE id=?`)
+        .get(id);
+      /** SQLite datetime이 ISO 방식을 지원하지 않으므로 변환 필요 */
+      data.createdAt = new Date(data.createdAt).toISOString();
+      data.updatedAt = new Date(data.updatedAt).toISOString();
+      return data;
     } catch (error) {
       console.error(error);
       return false;
@@ -74,7 +84,15 @@ export class SqliteClient {
 
   getList(): Note[] {
     try {
-      return this.db.prepare(`SELECT * FROM ${this.table}`).all();
+      return this.db
+        .prepare(`SELECT * FROM ${this.table}`)
+        .all()
+        .map((note) => {
+          /** SQLite datetime이 ISO 방식을 지원하지 않으므로 변환 필요 */
+          note.createdAt = new Date(note.createdAt).toISOString();
+          note.updatedAt = new Date(note.updatedAt).toISOString();
+          return note;
+        });
     } catch (error) {
       console.error(error);
       return [];
@@ -97,7 +115,9 @@ export class SqliteClient {
     try {
       return (
         this.db
-          .prepare(`UPDATE ${this.table} SET title=@title WHERE id=@id`)
+          .prepare(
+            `UPDATE ${this.table} SET title=@title, updatedAt=(datetime('now', 'localtime')) WHERE id=@id`
+          )
           .run({
             id,
             title,
