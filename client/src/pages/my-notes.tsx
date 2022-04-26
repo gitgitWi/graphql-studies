@@ -7,8 +7,8 @@ export function MyNotesPage() {
   });
 
   return (
-    <main>
+    <div>
       <h1>My Notes</h1>
-    </main>
+    </div>
   );
 }

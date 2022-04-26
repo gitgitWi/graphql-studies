@@ -7,8 +7,8 @@ export function FavoritesPage() {
   });
 
   return (
-    <main>
+    <div>
       <h1>My Favorites</h1>
-    </main>
+    </div>
   );
 }
