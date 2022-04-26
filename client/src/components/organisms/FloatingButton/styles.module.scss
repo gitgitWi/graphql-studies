@@ -1,0 +1,33 @@
+@import '../../../styles';
+
+$size: 60px;
+$margin: 15px;
+
+.floating-button--default {
+  width: $size;
+  height: $size;
+  z-index: 99;
+  position: absolute;
+  top: calc(100% - $margin - $size);
+  left: calc(100% - $margin - $size);
+  border-radius: calc($size * 0.5);
+  box-shadow: 2px 2px 4px $warm-grey-900;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $warm-grey-500;
+  color: $warm-grey-100;
+  font-size: 0.9rem;
+  line-height: 1;
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    box-shadow: 2px 2px 4px $rose-900;
+    background-color: $rose-500;
+    color: $rose-100;
+    font-weight: bold;
+  }
+}
