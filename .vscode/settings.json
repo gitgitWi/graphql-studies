@@ -8,7 +8,9 @@
   "cSpell.words": [
     "datetime",
     "localtime",
-    "ptiv"
+    "ptiv",
+    "vite",
+    "vitejs"
   ],
   "eslint.nodePath": ".yarn/sdks",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js"
