@@ -2102,7 +2102,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["sass", "npm:1.51.0"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
             ["typescript-plugin-css-modules", "virtual:656141524fab26d76b9a0de37412b0bd8d68b112a7ae5bb3607d411763274ecb93d754bd2292ee7cee1844b867cae11a6a7be00b96f1e87fd47684b593faaa6e#npm:3.4.0"],\
-            ["vite", "virtual:656141524fab26d76b9a0de37412b0bd8d68b112a7ae5bb3607d411763274ecb93d754bd2292ee7cee1844b867cae11a6a7be00b96f1e87fd47684b593faaa6e#npm:2.9.5"]\
+            ["vite", "virtual:656141524fab26d76b9a0de37412b0bd8d68b112a7ae5bb3607d411763274ecb93d754bd2292ee7cee1844b867cae11a6a7be00b96f1e87fd47684b593faaa6e#npm:2.9.16"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -4629,6 +4629,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nanoid", "npm:3.3.3"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:3.3.6", {\
+          "packageLocation": "./.yarn/cache/nanoid-npm-3.3.6-e6d6ae7e71-7d0eda6570.zip/node_modules/nanoid/",\
+          "packageDependencies": [\
+            ["nanoid", "npm:3.3.6"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["napi-build-utils", [\
@@ -5030,6 +5037,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["postcss", "npm:8.4.12"],\
             ["nanoid", "npm:3.3.3"],\
+            ["picocolors", "npm:1.0.0"],\
+            ["source-map-js", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:8.4.24", {\
+          "packageLocation": "./.yarn/cache/postcss-npm-8.4.24-07c10836e5-814e2126da.zip/node_modules/postcss/",\
+          "packageDependencies": [\
+            ["postcss", "npm:8.4.24"],\
+            ["nanoid", "npm:3.3.6"],\
             ["picocolors", "npm:1.0.0"],\
             ["source-map-js", "npm:1.0.2"]\
           ],\
@@ -5587,10 +5604,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["rollup", [\
-        ["npm:2.70.2", {\
-          "packageLocation": "./.yarn/cache/rollup-npm-2.70.2-1f9eb89050-eb04eb9b87.zip/node_modules/rollup/",\
+        ["npm:2.77.3", {\
+          "packageLocation": "./.yarn/cache/rollup-npm-2.77.3-be523d3443-b179c68249.zip/node_modules/rollup/",\
           "packageDependencies": [\
-            ["rollup", "npm:2.70.2"],\
+            ["rollup", "npm:2.77.3"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"]\
           ],\
           "linkType": "HARD"\
@@ -6538,26 +6555,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["vite", [\
-        ["npm:2.9.5", {\
-          "packageLocation": "./.yarn/cache/vite-npm-2.9.5-d80948fb05-354189cbce.zip/node_modules/vite/",\
+        ["npm:2.9.16", {\
+          "packageLocation": "./.yarn/cache/vite-npm-2.9.16-e601a16e52-b09d899861.zip/node_modules/vite/",\
           "packageDependencies": [\
-            ["vite", "npm:2.9.5"]\
+            ["vite", "npm:2.9.16"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:656141524fab26d76b9a0de37412b0bd8d68b112a7ae5bb3607d411763274ecb93d754bd2292ee7cee1844b867cae11a6a7be00b96f1e87fd47684b593faaa6e#npm:2.9.5", {\
-          "packageLocation": "./.yarn/__virtual__/vite-virtual-07ce1c42c5/0/cache/vite-npm-2.9.5-d80948fb05-354189cbce.zip/node_modules/vite/",\
+        ["virtual:656141524fab26d76b9a0de37412b0bd8d68b112a7ae5bb3607d411763274ecb93d754bd2292ee7cee1844b867cae11a6a7be00b96f1e87fd47684b593faaa6e#npm:2.9.16", {\
+          "packageLocation": "./.yarn/__virtual__/vite-virtual-5e2a64279f/0/cache/vite-npm-2.9.16-e601a16e52-b09d899861.zip/node_modules/vite/",\
           "packageDependencies": [\
-            ["vite", "virtual:656141524fab26d76b9a0de37412b0bd8d68b112a7ae5bb3607d411763274ecb93d754bd2292ee7cee1844b867cae11a6a7be00b96f1e87fd47684b593faaa6e#npm:2.9.5"],\
+            ["vite", "virtual:656141524fab26d76b9a0de37412b0bd8d68b112a7ae5bb3607d411763274ecb93d754bd2292ee7cee1844b867cae11a6a7be00b96f1e87fd47684b593faaa6e#npm:2.9.16"],\
             ["@types/less", null],\
             ["@types/sass", null],\
             ["@types/stylus", null],\
             ["esbuild", "npm:0.14.37"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"],\
             ["less", null],\
-            ["postcss", "npm:8.4.12"],\
+            ["postcss", "npm:8.4.24"],\
             ["resolve", "patch:resolve@npm%3A1.22.0#~builtin<compat/resolve>::version=1.22.0&hash=07638b"],\
-            ["rollup", "npm:2.70.2"],\
+            ["rollup", "npm:2.77.3"],\
             ["sass", "npm:1.51.0"],\
             ["stylus", null]\
           ],\
